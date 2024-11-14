@@ -11,13 +11,12 @@ BOBJ = $(BSRC:%.c=%.o)
 all: $(NAME)
 bonus: $(BOBJ)
 	$(AR) $(NAME) $^
-so:
-	$(CC) -c -fPIC  $(SRC)
-	gcc -shared -o libft.so $(OBJ)
+	@touch bonus
+
 $(NAME):$(OBJ)
 	$(AR) $(NAME) $^
 clean:
 	$(RM) $(OBJ) $(BOBJ)
 fclean: clean
 	$(RM) $(NAME)
-re: fclean all
+re: fclean all clean re 
